@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { ExternalLink, Headphones, Mail, RotateCcw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { birthdayContent, letters, wishes, type Letter } from "@/lib/birthday-content";
@@ -47,7 +47,7 @@ export function CakeScene({ onContinue }: { onContinue: () => void }) {
   return (
     <main className={`story-screen cake-screen ${blown ? "celebrating" : ""}`}>
       <MagicFlowers bloomed={blown} />
-      {blown && <div className="confetti" aria-hidden="true">{Array.from({ length: 26 }, (_, i) => <i key={i} style={{ "--i": i } as React.CSSProperties}>{i % 3 === 0 ? "♡" : "✦"}</i>)}</div>}
+      {blown && <div className="confetti" aria-hidden="true">{Array.from({ length: 26 }, (_, i) => <i key={i} style={{ "--i": i } as CSSProperties}>{i % 3 === 0 ? "♡" : "✦"}</i>)}</div>}
       <div className="chapter-heading">
         <p className="game-kicker">CHAPTER 00 · THE BIRTHDAY</p>
         <h1>{blown ? "HAPPY BIRTHDAY, MY LOVE ♡" : <>LEVEL {birthdayContent.age} <em>UNLOCKED</em></>}</h1>
