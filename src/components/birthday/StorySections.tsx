@@ -136,7 +136,11 @@ function shuffleNumbers() {
   const values = Array.from({ length: wishes.length }, (_, index) => index);
   for (let i = values.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
-    [values[i], values[j]] = [values[j], values[i]];
+    const current = values[i];
+    const replacement = values[j];
+    if (current === undefined || replacement === undefined) continue;
+    values[i] = replacement;
+    values[j] = current;
   }
   return values;
 }
@@ -144,8 +148,13 @@ function shuffleNumbers() {
 export function WishJarScene({ onContinue }: { onContinue: () => void }) {
   const [order] = useState(shuffleNumbers);
   const [opened, setOpened] = useState<number[]>([]);
-  const active = opened.length ? order[opened.length - 1] : null;
-  const openWish = () => { if (opened.length < wishes.length) setOpened((current) => [...current, order[current.length]]); };
+  const active = opened.length ? (order[opened.length - 1] ?? null) : null;
+  const openWish = () => {
+    if (opened.length >= wishes.length) return;
+    const nextWish = order[opened.length];
+    if (nextWish === undefined) return;
+    setOpened((current) => [...current, nextWish]);
+  };
   return (
     <main className="story-screen wish-screen">
       <div className="wish-copy"><p className="game-kicker">CHAPTER 05 · WISH INVENTORY</p><h1>24 WISHES<br/><em>FOR YOU</em></h1><p>There are 24 things I want to wish for you.<br/>You can open them whenever you want.</p><div className="wish-progress"><span style={{ width: `${(opened.length / wishes.length) * 100}%` }}/><small>{opened.length} / 24 DISCOVERED</small></div></div>
