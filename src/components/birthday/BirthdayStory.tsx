@@ -19,8 +19,10 @@ export function BirthdayStory() {
     musicRef.current.volume = voicePlaying ? 0.05 : chapter === 8 ? 0.12 : 0.22;
   }, [muted, voicePlaying, chapter]);
 
-  const start = () => {
+  const start = async () => {
     if (!musicRef.current) {
+      const response = await fetch(birthdayContent.backgroundMusic, { method: "HEAD" }).catch(() => null);
+      if (!response?.ok) { setChapter(1); return; }
       const music = new Audio(birthdayContent.backgroundMusic);
       music.loop = true;
       music.volume = 0.22;

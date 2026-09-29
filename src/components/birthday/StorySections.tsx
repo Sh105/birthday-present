@@ -85,7 +85,11 @@ export function VoiceScene({ onContinue, onVoiceState }: { onContinue: () => voi
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [missing, setMissing] = useState(false);
-  const toggleVoice = () => {
+  const toggleVoice = async () => {
+    if (!audio) {
+      const response = await fetch(birthdayContent.voiceMessage, { method: "HEAD" }).catch(() => null);
+      if (!response?.ok) { setMissing(true); return; }
+    }
     const player = audio ?? new Audio(birthdayContent.voiceMessage);
     if (!audio) {
       player.addEventListener("ended", () => { setPlaying(false); onVoiceState(false); });
