@@ -8,7 +8,7 @@ export const birthdayContent = {
   storyMessage:
     "And somewhere somehow along the way, you have became the most important part of my life.\nSo instead of giving you something ordinary for your birthday, I wanted to make you a little something ",
   finalMessage:
-    "Happy 24th Birthday, my love. Thank you for being you. I love you endlessly.",
+    "Happy 24th Birthday, my love. \nThank you for being you and I love you endlessly ♡",
 } as const;
 
 export const wishes = [
