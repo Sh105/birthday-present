@@ -6,7 +6,7 @@ export const birthdayContent = {
   spotifyPlaylist:
     "https://open.spotify.com/playlist/38zWzlrPPBxIAWt3BZAQHe?si=88a2081b65e3487d&pt=951925cf394abe398b5a5f159970ad13",
   storyMessage:
-    "[ADD YOUR PERSONAL STORY HERE — a few honest lines about what this journey means to you.]",
+    "And somewhere somehow along the way, you have became the most important part of my life.\nSo instead of giving you something ordinary for your birthday, I wanted to make you a little something ",
   finalMessage:
     "Happy 24th Birthday, my love. Thank you for being you. I love you endlessly.",
 } as const;
