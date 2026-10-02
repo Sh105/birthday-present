@@ -3,7 +3,6 @@ export const birthdayContent = {
   recipientName: "My Love",
   age: 24,
   backgroundMusic: "/assets/music/background.mp3",
-  voiceMessage: "/assets/music/voice-message.mp3",
   spotifyPlaylist:
     "https://open.spotify.com/playlist/38zWzlrPPBxIAWt3BZAQHe?si=88a2081b65e3487d&pt=951925cf394abe398b5a5f159970ad13",
   storyMessage:

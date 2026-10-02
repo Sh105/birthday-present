@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
-import { ExternalLink, Headphones, Mail, RotateCcw, Sparkles } from "lucide-react";
+import { ExternalLink, Mail, RotateCcw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { birthdayContent, letters, wishes, type Letter } from "@/lib/birthday-content";
 import { GengarSilhouette, MagicFlowers } from "./AmbientScene";
@@ -81,40 +81,12 @@ export function StoryIntro({ onContinue }: { onContinue: () => void }) {
   );
 }
 
-export function VoiceScene({ onContinue, onVoiceState }: { onContinue: () => void; onVoiceState: (playing: boolean) => void }) {
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-  const [playing, setPlaying] = useState(false);
-  const [missing, setMissing] = useState(false);
-  const toggleVoice = () => {
-    const player = audio ?? new Audio(birthdayContent.voiceMessage);
-    if (!audio) {
-      player.addEventListener("ended", () => { setPlaying(false); onVoiceState(false); });
-      player.addEventListener("error", () => { setMissing(true); setPlaying(false); onVoiceState(false); });
-      setAudio(player);
-    }
-    if (playing) { player.pause(); setPlaying(false); onVoiceState(false); }
-    else { void player.play().then(() => { setPlaying(true); onVoiceState(true); }).catch(() => setMissing(true)); }
-  };
-
-  return (
-    <main className="story-screen gift-screen">
-      <div className="chapter-heading compact"><p className="game-kicker">CHAPTER 02 · A VOICE, KEPT HERE</p><h1>There are some things<br/>I wanted to say…</h1><p>and typing them didn’t feel like enough.</p></div>
-      <section className="voice-keepsake">
-        <div className={`voice-orbit ${playing ? "is-playing" : ""}`}><Headphones/><span/><span/><span/></div>
-        <div className="waveform" aria-hidden="true">{Array.from({ length: 28 }, (_, i) => <i key={i} style={{ height: `${16 + ((i * 17) % 42)}px` }} />)}</div>
-        <Button className="story-button story-button-primary" onClick={toggleVoice}>{playing ? "PAUSE MESSAGE" : "PLAY MESSAGE"}</Button>
-        {missing && <p className="asset-note">Voice message ready for your audio file.</p>}
-      </section>
-      <Button className="story-button story-button-quiet" onClick={onContinue}>CONTINUE <span>→</span></Button>
-    </main>
-  );
-}
 
 export function PlaylistScene({ onContinue }: { onContinue: () => void }) {
   return (
     <main className="story-screen playlist-screen">
       <div className="vinyl" aria-hidden="true"><div className="vinyl-ring"/><div className="vinyl-label">♡<small>FOR YOU</small></div></div>
-      <article className="playlist-copy"><p className="game-kicker">CHAPTER 03 · THE SOUNDTRACK</p><h1>Songs That<br/><em>Remind Me Of You</em></h1><p>Some songs found you before I knew how to put the feeling into words.</p>
+      <article className="playlist-copy"><p className="game-kicker">CHAPTER 02 · THE SOUNDTRACK</p><h1>Songs That<br/><em>Remind Me Of You</em></h1><p>Some songs found you before I knew how to put the feeling into words.</p>
         <Button className="story-button story-button-primary" asChild><a href={birthdayContent.spotifyPlaylist} target="_blank" rel="noreferrer">♫ OPEN MY PLAYLIST <ExternalLink/></a></Button>
         <Button className="story-button story-button-quiet" onClick={onContinue}>KEEP GOING <span>→</span></Button>
       </article>
@@ -127,7 +99,7 @@ export function DiscoveryScene({ onContinue }: { onContinue: () => void }) {
     <main className="story-screen discovery-screen">
       <GengarSilhouette className="gengar-discovery" />
       <div className="spell-trail" aria-hidden="true"><i>✦</i><i>·</i><i>✧</i></div>
-      <article className="narrative-copy"><p className="game-kicker">CHAPTER 04 · LITTLE THINGS</p><h1>I notice the things<br/><em>that make you, you.</em></h1><p className="gentle-copy">The grin when a favorite character appears. The worlds you disappear into. The quiet thrill of a road opening ahead.</p><div className="unlock-toast"><Sparkles/> MEMORY FRAGMENTS UNLOCKED</div><Button className="story-button story-button-primary" onClick={onContinue}>DISCOVER THE WISHES <span>→</span></Button></article>
+      <article className="narrative-copy"><p className="game-kicker">CHAPTER 03 · LITTLE THINGS</p><h1>I notice the things<br/><em>that make you, you.</em></h1><p className="gentle-copy">The grin when a favorite character appears. The worlds you disappear into. The quiet thrill of a road opening ahead.</p><div className="unlock-toast"><Sparkles/> MEMORY FRAGMENTS UNLOCKED</div><Button className="story-button story-button-primary" onClick={onContinue}>DISCOVER THE WISHES <span>→</span></Button></article>
     </main>
   );
 }
@@ -157,7 +129,7 @@ export function WishJarScene({ onContinue }: { onContinue: () => void }) {
   };
   return (
     <main className="story-screen wish-screen">
-      <div className="wish-copy"><p className="game-kicker">CHAPTER 05 · WISH INVENTORY</p><h1>24 WISHES<br/><em>FOR YOU</em></h1><p>There are 24 things I want to wish for you.<br/>You can open them whenever you want.</p><div className="wish-progress"><span style={{ width: `${(opened.length / wishes.length) * 100}%` }}/><small>{opened.length} / 24 DISCOVERED</small></div></div>
+      <div className="wish-copy"><p className="game-kicker">CHAPTER 04 · WISH INVENTORY</p><h1>24 WISHES<br/><em>FOR YOU</em></h1><p>There are 24 things I want to wish for you.<br/>You can open them whenever you want.</p><div className="wish-progress"><span style={{ width: `${(opened.length / wishes.length) * 100}%` }}/><small>{opened.length} / 24 DISCOVERED</small></div></div>
       <div className="jar-stage">
         <GengarSilhouette className="gengar-jar" />
         <div className="glass-jar" aria-label="A glowing jar filled with 24 wishes"><div className="jar-lid"/><div className="jar-shine"/>{Array.from({ length: 24 }, (_, i) => <i className={`jar-note note-${(i % 6) + 1}`} key={i}/>)}</div>
@@ -182,7 +154,7 @@ export function LetterArchive({ onContinue }: { onContinue: () => void }) {
   const activeLetter = useMemo(() => selected === null ? null : letters[selected], [selected]);
   return (
     <main className="story-screen letters-screen">
-      <div className="chapter-heading compact"><p className="game-kicker">CHAPTER 06 · PERSONAL ARCHIVE</p><h1>OPEN WHEN…</h1><p>Twelve letters. For twelve kinds of days.</p></div>
+      <div className="chapter-heading compact"><p className="game-kicker">CHAPTER 05 · PERSONAL ARCHIVE</p><h1>OPEN WHEN…</h1><p>Twelve letters. For twelve kinds of days.</p></div>
       <div className="letter-grid">{letters.map((letter, index) => <Button variant="ghost" className="envelope" key={letter.title} onClick={() => setSelected(index)}><span className="envelope-number">{String(index + 1).padStart(2, "0")}</span><Mail/><span>{letter.title}</span><i>OPEN →</i></Button>)}</div>
       <Button className="story-button story-button-primary" onClick={onContinue}>FINISH THE STORY <span>→</span></Button>
       {activeLetter && selected !== null && <LetterReader letter={activeLetter} index={selected} onClose={() => setSelected(null)} onNext={() => setSelected((selected + 1) % letters.length)} />}
