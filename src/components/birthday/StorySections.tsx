@@ -164,6 +164,6 @@ export function LetterArchive({ onContinue }: { onContinue: () => void }) {
 
 export function FinalScene() {
   return (
-    <main className="story-screen final-screen"><div className="moon" aria-hidden="true"/><div className="final-copy"><p className="game-kicker">QUEST COMPLETE</p><h1>Level 24: Unlocked&nbsp;</h1><div className="story-divider"><span>✦</span></div><p className="personal-placeholder final-message">{birthdayContent.finalMessage}</p><p className="chapter-one">♡ END OF CHAPTER ONE ♡</p><p className="to-be-continued">our story continues…</p></div></main>
+    <main className="story-screen final-screen"><div className="moon" aria-hidden="true"/><div className="final-copy"><p className="game-kicker">QUEST COMPLETE</p><h1>Level 24: Unlocked&nbsp;</h1><div className="story-divider"><span>✦</span></div><p className="personal-placeholder final-message">{birthdayContent.finalMessage}</p><p className="chapter-one">♡ END OF CHAPTER 23 ♡</p><p className="to-be-continued">our story continues…</p></div></main>
   );
 }
