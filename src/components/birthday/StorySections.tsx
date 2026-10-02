@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
-import { ExternalLink, Headphones, Mail, RotateCcw, Sparkles } from "lucide-react";
+import { ExternalLink, Mail, RotateCcw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { birthdayContent, letters, wishes, type Letter } from "@/lib/birthday-content";
 import { GengarSilhouette, MagicFlowers } from "./AmbientScene";
