@@ -136,7 +136,7 @@ export function WishJarScene({ onContinue }: { onContinue: () => void }) {
       </div>
       <div className="wish-actions">
         {active === null ? <Button className="story-button story-button-primary" onClick={openWish}>OPEN A WISH <Sparkles/></Button> : <div className="wish-note"><small>WISH #{String(active + 1).padStart(2, "0")}</small><p>{wishes[active]}</p></div>}
-        {active !== null && opened.length < wishes.length && <Button className="story-button story-button-primary" onClick={openWish}>ANOTHER WISH <span>→</span></Button>}
+        {active !== null && opened.length < wishes.length && <Button className="story-button story-button-primary" onClick={openWish}>ANOTHER&nbsp;<span>→</span></Button>}
         {opened.length > 0 && <Button className="story-button story-button-quiet" onClick={onContinue}>{opened.length === wishes.length ? "ALL WISHES FOUND · OPEN LETTERS" : "VISIT THE LETTER ARCHIVE"} <span>→</span></Button>}
       </div>
     </main>
