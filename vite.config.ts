@@ -10,7 +10,7 @@ export default defineConfig({
 
     prerender: {
       enabled: true,
-      autoSubfolderIndex: true,
+      autoSubfolderIndex: false,
       autoStaticPathsDiscovery: true,
       crawlLinks: true,
     },
