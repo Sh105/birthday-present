@@ -9,7 +9,7 @@ export function OpeningScene({ onStart }: { onStart: () => void }) {
     <main className="story-screen opening-screen">
       <GengarSilhouette className="gengar-opening" />
       <div className="opening-copy animate-fade-in">
-        <p className="game-kicker"><span className="status-dot" /> PLAYER 2 DETECTED ♡</p>
+        <p className="game-kicker"><span className="status-dot" /> PLAYER DETECTED ♡</p>
         <div className="level-mark"><span>LEVEL</span><strong>{birthdayContent.age}</strong></div>
         <p className="story-whisper">A little story was made for you.</p>
         <Button className="story-button story-button-primary" onClick={onStart}>PRESS START <span>→</span></Button>
