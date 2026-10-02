@@ -129,7 +129,7 @@ export function WishJarScene({ onContinue }: { onContinue: () => void }) {
   };
   return (
     <main className="story-screen wish-screen">
-      <div className="wish-copy"><p className="game-kicker">CHAPTER 04 · WISH INVENTORY</p><h1>24 WISHES<br/><em>FOR YOU</em></h1><p>There are 24 things I want to wish for you.<br/>You can open them whenever you want.</p><div className="wish-progress"><span style={{ width: `${(opened.length / wishes.length) * 100}%` }}/><small>{opened.length} / 24 DISCOVERED</small></div></div>
+      <div className="wish-copy"><p className="game-kicker">CHAPTER 04 · WISH INVENTORY</p><h1>24 WISHES<br/><em>FOR YOU</em></h1><p>There are 24 things I want to remind/say to you.<br/>You can open them whenever you want.</p><div className="wish-progress"><span style={{ width: `${(opened.length / wishes.length) * 100}%` }}/><small>{opened.length} / 24 DISCOVERED</small></div></div>
       <div className="jar-stage">
         <GengarSilhouette className="gengar-jar" />
         <div className="glass-jar" aria-label="A glowing jar filled with 24 wishes"><div className="jar-lid"/><div className="jar-shine"/>{Array.from({ length: 24 }, (_, i) => <i className={`jar-note note-${(i % 6) + 1}`} key={i}/>)}</div>
