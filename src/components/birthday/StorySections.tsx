@@ -135,7 +135,7 @@ export function WishJarScene({ onContinue }: { onContinue: () => void }) {
         <div className="glass-jar" aria-label="A glowing jar filled with 24 wishes"><div className="jar-lid"/><div className="jar-shine"/>{Array.from({ length: 24 }, (_, i) => <i className={`jar-note note-${(i % 6) + 1}`} key={i}/>)}</div>
       </div>
       <div className="wish-actions">
-        {active === null ? <Button className="story-button story-button-primary" onClick={openWish}>OPEN A WISH <Sparkles/></Button> : <div className="wish-note"><small>WISH #{String(active + 1).padStart(2, "0")}</small><p>{wishes[active]}</p></div>}
+        {active === null ? <Button className="story-button story-button-primary" onClick={openWish}>OPEN A MESSAGE<Sparkles/></Button> : <div className="wish-note"><small>WISH #{String(active + 1).padStart(2, "0")}</small><p>{wishes[active]}</p></div>}
         {active !== null && opened.length < wishes.length && <Button className="story-button story-button-primary" onClick={openWish}>ANOTHER&nbsp;<span>→</span></Button>}
         {opened.length > 0 && <Button className="story-button story-button-quiet" onClick={onContinue}>{opened.length === wishes.length ? "ALL WISHES FOUND · OPEN LETTERS" : "VISIT THE LETTER ARCHIVE"} <span>→</span></Button>}
       </div>
