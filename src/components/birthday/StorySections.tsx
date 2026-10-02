@@ -81,34 +81,6 @@ export function StoryIntro({ onContinue }: { onContinue: () => void }) {
   );
 }
 
-export function VoiceScene({ onContinue, onVoiceState }: { onContinue: () => void; onVoiceState: (playing: boolean) => void }) {
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-  const [playing, setPlaying] = useState(false);
-  const [missing, setMissing] = useState(false);
-  const toggleVoice = () => {
-    const player = audio ?? new Audio(birthdayContent.voiceMessage);
-    if (!audio) {
-      player.addEventListener("ended", () => { setPlaying(false); onVoiceState(false); });
-      player.addEventListener("error", () => { setMissing(true); setPlaying(false); onVoiceState(false); });
-      setAudio(player);
-    }
-    if (playing) { player.pause(); setPlaying(false); onVoiceState(false); }
-    else { void player.play().then(() => { setPlaying(true); onVoiceState(true); }).catch(() => setMissing(true)); }
-  };
-
-  return (
-    <main className="story-screen gift-screen">
-      <div className="chapter-heading compact"><p className="game-kicker">CHAPTER 02 · A VOICE, KEPT HERE</p><h1>There are some things<br/>I wanted to say…</h1><p>and typing them didn’t feel like enough.</p></div>
-      <section className="voice-keepsake">
-        <div className={`voice-orbit ${playing ? "is-playing" : ""}`}><Headphones/><span/><span/><span/></div>
-        <div className="waveform" aria-hidden="true">{Array.from({ length: 28 }, (_, i) => <i key={i} style={{ height: `${16 + ((i * 17) % 42)}px` }} />)}</div>
-        <Button className="story-button story-button-primary" onClick={toggleVoice}>{playing ? "PAUSE MESSAGE" : "PLAY MESSAGE"}</Button>
-        {missing && <p className="asset-note">Voice message ready for your audio file.</p>}
-      </section>
-      <Button className="story-button story-button-quiet" onClick={onContinue}>CONTINUE <span>→</span></Button>
-    </main>
-  );
-}
 
 export function PlaylistScene({ onContinue }: { onContinue: () => void }) {
   return (
