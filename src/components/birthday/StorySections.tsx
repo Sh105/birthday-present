@@ -99,7 +99,7 @@ export function DiscoveryScene({ onContinue }: { onContinue: () => void }) {
     <main className="story-screen discovery-screen">
       <GengarSilhouette className="gengar-discovery" />
       <div className="spell-trail" aria-hidden="true"><i>✦</i><i>·</i><i>✧</i></div>
-      <article className="narrative-copy"><p className="game-kicker">CHAPTER 03 · LITTLE THINGS</p><h1>I notice the things<br/><em>that make you, you.</em></h1><p className="gentle-copy">The grin when a favorite character appears. The worlds you disappear into. The quiet thrill of a road opening ahead.</p><div className="unlock-toast"><Sparkles/> MEMORY FRAGMENTS UNLOCKED</div><Button className="story-button story-button-primary" onClick={onContinue}>DISCOVER THE WISHES <span>→</span></Button></article>
+      <article className="narrative-copy"><p className="game-kicker">CHAPTER 03 · LITTLE THINGS</p><h1>I notice the things<br/><em>that make you, you.</em></h1><p className="gentle-copy">The grin when a favorite character appears. The worlds you disappear into while you play. The quiet thrill of a watching your favorite fights.</p><div className="unlock-toast"><Sparkles/> MEMORY FRAGMENTS UNLOCKED</div><Button className="story-button story-button-primary" onClick={onContinue}>DISCOVER THE WISHES <span>→</span></Button></article>
     </main>
   );
 }
