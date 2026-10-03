@@ -3,9 +3,9 @@ import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { birthdayContent } from "@/lib/birthday-content";
 import { AmbientScene } from "./AmbientScene";
-import { CakeScene, DiscoveryScene, FinalScene, LetterArchive, OpeningScene, PlaylistScene, StoryIntro, WishJarScene } from "./StorySections";
+import { BouquetScene, CakeScene, DiscoveryScene, FinalScene, LetterArchive, OpeningScene, PlaylistScene, StoryIntro, WishJarScene } from "./StorySections";
 
-const chapterNames = ["START", "BIRTHDAY", "STORY", "PLAYLIST", "DISCOVERIES", "WISHES", "LETTERS", "FINALE"];
+const chapterNames = ["START", "BIRTHDAY", "STORY", "PLAYLIST", "DISCOVERIES", "WISHES", "LETTERS", "BOUQUET", "FINALE"];
 
 export function BirthdayStory() {
   const [chapter, setChapter] = useState(0);
@@ -15,7 +15,7 @@ export function BirthdayStory() {
   useEffect(() => {
     if (!musicRef.current) return;
     musicRef.current.muted = muted;
-    musicRef.current.volume = chapter === 7 ? 0.12 : 0.22;
+    musicRef.current.volume = chapter === 8 ? 0.12 : 0.22;
   }, [muted, chapter]);
 
   const start = () => {
@@ -34,8 +34,8 @@ export function BirthdayStory() {
 
   return (
     <div className={`birthday-story chapter-${chapter}`}>
-      <AmbientScene quiet={chapter === 7} />
-      {chapter > 0 && <header className="story-hud"><div className="hud-progress"><span>CHAPTER {String(Math.min(chapter, 6)).padStart(2, "0")} / 06</span><i><b style={{ width: `${(chapter / 7) * 100}%` }}/></i><small>{chapterNames[chapter]}</small></div><Button variant="ghost" size="icon" className="sound-button" onClick={() => setMuted((value) => !value)} aria-label={muted ? "Unmute background music" : "Mute background music"}>{muted ? <VolumeX/> : <Volume2/>}</Button></header>}
+      <AmbientScene quiet={chapter === 8} />
+      {chapter > 0 && <header className="story-hud"><div className="hud-progress"><span>CHAPTER {String(Math.min(chapter, 7)).padStart(2, "0")} / 07</span><i><b style={{ width: `${(chapter / 8) * 100}%` }}/></i><small>{chapterNames[chapter]}</small></div><Button variant="ghost" size="icon" className="sound-button" onClick={() => setMuted((value) => !value)} aria-label={muted ? "Unmute background music" : "Mute background music"}>{muted ? <VolumeX/> : <Volume2/>}</Button></header>}
       <div key={chapter} className="chapter-transition">
         {chapter === 0 && <OpeningScene onStart={start} />}
         {chapter === 1 && <CakeScene onContinue={next} />}
@@ -44,7 +44,8 @@ export function BirthdayStory() {
         {chapter === 4 && <DiscoveryScene onContinue={next} />}
         {chapter === 5 && <WishJarScene onContinue={next} />}
         {chapter === 6 && <LetterArchive onContinue={next} />}
-        {chapter === 7 && <FinalScene />}
+        {chapter === 7 && <BouquetScene onContinue={next} />}
+        {chapter === 8 && <FinalScene />}
       </div>
     </div>
   );
