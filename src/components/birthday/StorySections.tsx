@@ -163,32 +163,40 @@ export function LetterArchive({ onContinue }: { onContinue: () => void }) {
 }
 
 const bouquetFlowers = [
-  { kind: "lily", x: 50, y: 11, delay: "0s" },
-  { kind: "rose", x: 35, y: 21, delay: ".12s" },
-  { kind: "lily", x: 64, y: 24, delay: ".2s" },
-  { kind: "rose", x: 23, y: 35, delay: ".3s" },
-  { kind: "lily", x: 48, y: 39, delay: ".38s" },
-  { kind: "rose", x: 74, y: 39, delay: ".48s" },
-  { kind: "lily", x: 33, y: 52, delay: ".56s" },
-  { kind: "rose", x: 61, y: 55, delay: ".66s" },
+  { kind: "ghost", x: 50, y: 12, delay: "0s" },
+  { kind: "spider", x: 34, y: 23, delay: ".1s" },
+  { kind: "ghost", x: 66, y: 25, delay: ".18s" },
+  { kind: "spider", x: 22, y: 39, delay: ".28s" },
+  { kind: "ghost", x: 48, y: 42, delay: ".36s" },
+  { kind: "spider", x: 76, y: 41, delay: ".46s" },
+  { kind: "ghost", x: 33, y: 57, delay: ".54s" },
+  { kind: "spider", x: 63, y: 58, delay: ".64s" },
 ] as const;
 
 export function BouquetScene({ onContinue }: { onContinue: () => void }) {
+  const [bloomed, setBloomed] = useState(false);
+  const [petalBurst, setPetalBurst] = useState(0);
+
+  useEffect(() => {
+    const reveal = window.setTimeout(() => setBloomed(true), 500);
+    return () => window.clearTimeout(reveal);
+  }, []);
+
+  const revealPetals = () => {
+    setBloomed(true);
+    setPetalBurst((value) => value + 1);
+  };
+
   return (
-    <main className="story-screen bouquet-screen">
+    <main className={`story-screen bouquet-screen ${bloomed ? "bouquet-bloomed" : ""}`}>
       <div className="bouquet-copy animate-fade-in">
         <p className="game-kicker">CHAPTER 06 · EVERLASTING GARDEN</p>
         <h1>Flowers for you,<br/><em>so they never die.</em></h1>
-        <p>A bouquet that will keep blooming here, whenever you come back.</p>
       </div>
-      <div className="bouquet" role="img" aria-label="An everlasting bouquet of glowing lilies and roses">
-        <div className="bouquet-glow" />
+      <Button variant="ghost" className="bouquet" onClick={revealPetals} aria-label="Reveal the everlasting bouquet and release petals">
+        <span className="bouquet-glow" />
         {bouquetFlowers.map((flower, index) => (
-          <div
-            className={`bouquet-flower bouquet-${flower.kind}`}
-            key={`${flower.kind}-${index}`}
-            style={{ left: `${flower.x}%`, top: `${flower.y}%`, animationDelay: flower.delay }}
-          >
+          <span className={`bouquet-flower bouquet-${flower.kind}`} key={`${flower.kind}-${index}`} style={{ left: `${flower.x}%`, top: `${flower.y}%`, animationDelay: flower.delay }}>
             <span className="bouquet-stem" />
             <span className="bouquet-leaf bouquet-leaf-left" />
             <span className="bouquet-leaf bouquet-leaf-right" />
@@ -197,11 +205,15 @@ export function BouquetScene({ onContinue }: { onContinue: () => void }) {
             <span className="bouquet-petal bouquet-petal-c" />
             <span className="bouquet-petal bouquet-petal-d" />
             <span className="bouquet-petal bouquet-petal-e" />
+            <span className="bouquet-petal bouquet-petal-f" />
             <span className="bouquet-center" />
-          </div>
+          </span>
         ))}
-        <div className="bouquet-wrap"><span>♡</span></div>
-      </div>
+        <span className="bouquet-wrap"><span>♡</span></span>
+        {petalBurst > 0 && <span className="floating-petals" key={petalBurst} aria-hidden="true">{Array.from({ length: 9 }, (_, index) => <i key={index} style={{ "--petal": index } as CSSProperties} />)}</span>}
+        <span className="bouquet-tap">TAP THE BOUQUET</span>
+      </Button>
+      <p className="bouquet-message">A little piece of forever, just for you. ♡</p>
       <Button className="story-button story-button-primary bouquet-continue" onClick={onContinue}>KEEP THESE FOREVER <span>→</span></Button>
     </main>
   );

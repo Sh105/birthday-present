@@ -3,4 +3,4 @@
 - [x] Build the complete chapter journey and interactions
 - [x] Apply the romantic neon visual system and responsive behavior
 - [x] Verify the full desktop and mobile experience
-- [x] Add an everlasting flower bouquet chapter before the finale
+- [ ] Add an everlasting ghost-lily and spider-lily bouquet chapter with reveal and floating-petal interaction
