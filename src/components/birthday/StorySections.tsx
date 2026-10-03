@@ -156,8 +156,65 @@ export function LetterArchive({ onContinue }: { onContinue: () => void }) {
     <main className="story-screen letters-screen">
       <div className="chapter-heading compact"><p className="game-kicker">CHAPTER 05 · PERSONAL ARCHIVE</p><h1>OPEN WHEN…</h1><p>Twelve letters. For twelve kinds of days.</p></div>
       <div className="letter-grid">{letters.map((letter, index) => <Button variant="ghost" className="envelope" key={letter.title} onClick={() => setSelected(index)}><span className="envelope-number">{String(index + 1).padStart(2, "0")}</span><Mail/><span>{letter.title}</span><i>OPEN →</i></Button>)}</div>
-      <Button className="story-button story-button-primary" onClick={onContinue}>FINISH THE STORY <span>→</span></Button>
+      <Button className="story-button story-button-primary" onClick={onContinue}>ONE MORE GIFT <span>→</span></Button>
       {activeLetter && selected !== null && <LetterReader letter={activeLetter} index={selected} onClose={() => setSelected(null)} onNext={() => setSelected((selected + 1) % letters.length)} />}
+    </main>
+  );
+}
+
+const bouquetFlowers = [
+  { kind: "ghost", x: 50, y: 12, delay: "0s" },
+  { kind: "spider", x: 34, y: 23, delay: ".1s" },
+  { kind: "ghost", x: 66, y: 25, delay: ".18s" },
+  { kind: "spider", x: 22, y: 39, delay: ".28s" },
+  { kind: "ghost", x: 48, y: 42, delay: ".36s" },
+  { kind: "spider", x: 76, y: 41, delay: ".46s" },
+  { kind: "ghost", x: 33, y: 57, delay: ".54s" },
+  { kind: "spider", x: 63, y: 58, delay: ".64s" },
+] as const;
+
+export function BouquetScene({ onContinue }: { onContinue: () => void }) {
+  const [bloomed, setBloomed] = useState(false);
+  const [petalBurst, setPetalBurst] = useState(0);
+
+  useEffect(() => {
+    const reveal = window.setTimeout(() => setBloomed(true), 500);
+    return () => window.clearTimeout(reveal);
+  }, []);
+
+  const revealPetals = () => {
+    setBloomed(true);
+    setPetalBurst((value) => value + 1);
+  };
+
+  return (
+    <main className={`story-screen bouquet-screen ${bloomed ? "bouquet-bloomed" : ""}`}>
+      <div className="bouquet-copy animate-fade-in">
+        <p className="game-kicker">CHAPTER 06 · EVERLASTING GARDEN</p>
+        <h1>Flowers for you,<br/><em>so they never die.</em></h1>
+      </div>
+      <button className="bouquet" type="button" onClick={revealPetals} aria-label="Reveal the everlasting bouquet and release petals">
+        <span className="bouquet-glow" />
+        {bouquetFlowers.map((flower, index) => (
+          <span className={`bouquet-flower bouquet-${flower.kind}`} key={`${flower.kind}-${index}`} style={{ left: `${flower.x}%`, top: `${flower.y}%`, animationDelay: flower.delay }}>
+            <span className="bouquet-stem" />
+            <span className="bouquet-leaf bouquet-leaf-left" />
+            <span className="bouquet-leaf bouquet-leaf-right" />
+            <span className="bouquet-petal bouquet-petal-a" />
+            <span className="bouquet-petal bouquet-petal-b" />
+            <span className="bouquet-petal bouquet-petal-c" />
+            <span className="bouquet-petal bouquet-petal-d" />
+            <span className="bouquet-petal bouquet-petal-e" />
+            <span className="bouquet-petal bouquet-petal-f" />
+            <span className="bouquet-center" />
+          </span>
+        ))}
+        <span className="bouquet-wrap"><span>♡</span></span>
+        {petalBurst > 0 && <span className="floating-petals" key={petalBurst} aria-hidden="true">{Array.from({ length: 9 }, (_, index) => <i key={index} style={{ "--petal": index } as CSSProperties} />)}</span>}
+        <span className="bouquet-tap">TAP THE BOUQUET</span>
+      </button>
+      <p className="bouquet-message">A little piece of forever, just for you. ♡</p>
+      <Button className="story-button story-button-primary bouquet-continue" onClick={onContinue}>KEEP THESE FOREVER <span>→</span></Button>
     </main>
   );
 }
