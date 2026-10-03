@@ -193,7 +193,7 @@ export function BouquetScene({ onContinue }: { onContinue: () => void }) {
         <p className="game-kicker">CHAPTER 06 · EVERLASTING GARDEN</p>
         <h1>Flowers for you,<br/><em>so they never die.</em></h1>
       </div>
-      <button className="bouquet" type="button" onClick={revealPetals} aria-label="Reveal the everlasting bouquet and release petals">
+      <Button variant="ghost" className="bouquet" onClick={revealPetals} aria-label="Reveal the everlasting bouquet and release petals">
         <span className="bouquet-glow" />
         {bouquetFlowers.map((flower, index) => (
           <span className={`bouquet-flower bouquet-${flower.kind}`} key={`${flower.kind}-${index}`} style={{ left: `${flower.x}%`, top: `${flower.y}%`, animationDelay: flower.delay }}>
@@ -212,7 +212,7 @@ export function BouquetScene({ onContinue }: { onContinue: () => void }) {
         <span className="bouquet-wrap"><span>♡</span></span>
         {petalBurst > 0 && <span className="floating-petals" key={petalBurst} aria-hidden="true">{Array.from({ length: 9 }, (_, index) => <i key={index} style={{ "--petal": index } as CSSProperties} />)}</span>}
         <span className="bouquet-tap">TAP THE BOUQUET</span>
-      </button>
+      </Button>
       <p className="bouquet-message">A little piece of forever, just for you. ♡</p>
       <Button className="story-button story-button-primary bouquet-continue" onClick={onContinue}>KEEP THESE FOREVER <span>→</span></Button>
     </main>
