@@ -3,7 +3,7 @@ import { ExternalLink, Mail, RotateCcw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { birthdayContent, letters, wishes, type Letter } from "@/lib/birthday-content";
 import { GengarSilhouette, MagicFlowers } from "./AmbientScene";
-import everlastingBouquet from "@/assets/everlasting-bouquet.png";
+import everlastingBouquet from "@/assets/everlasting-bouquet-neon.png";
 
 export function OpeningScene({ onStart }: { onStart: () => void }) {
   return (
@@ -164,29 +164,32 @@ export function LetterArchive({ onContinue }: { onContinue: () => void }) {
 }
 
 export function BouquetScene({ onContinue }: { onContinue: () => void }) {
-  const [revealed, setRevealed] = useState(false);
-  const [petals, setPetals] = useState(0);
-  useEffect(() => {
-    const timer = window.setTimeout(() => setRevealed(true), 350);
-    return () => window.clearTimeout(timer);
-  }, []);
+  const [bloomed, setBloomed] = useState(false);
+  const bloomOrContinue = () => {
+    if (!bloomed) {
+      setBloomed(true);
+      return;
+    }
+    onContinue();
+  };
 
   return (
-    <main className="story-screen bouquet-screen">
+    <main className={`story-screen bouquet-screen ${bloomed ? "is-bloomed" : ""}`}>
       <div className="bouquet-copy animate-fade-in">
         <p className="game-kicker">CHAPTER 06 · EVERLASTING GARDEN</p>
         <h1>For you, <em>always.</em></h1>
       </div>
       <div className="bouquet-stage">
-        <Button variant="ghost" className={`bouquet-gift ${revealed ? "is-revealed" : ""}`} aria-label="Touch the bouquet to release petals" onClick={() => { setRevealed(true); setPetals((count) => count + 1); }}>
+        <Button variant="ghost" className="bouquet-gift" aria-label={bloomed ? "Bouquet fully bloomed" : "Touch the bouquet to bloom"} aria-pressed={bloomed} onClick={() => setBloomed(true)}>
           <img src={everlastingBouquet} alt="A hand-tied bouquet of white ghost lilies and red spider lilies" width={1024} height={1280} />
+          <span className="bouquet-bloom-layer bloom-left" aria-hidden="true"><img src={everlastingBouquet} alt="" /></span>
+          <span className="bouquet-bloom-layer bloom-center" aria-hidden="true"><img src={everlastingBouquet} alt="" /></span>
+          <span className="bouquet-bloom-layer bloom-right" aria-hidden="true"><img src={everlastingBouquet} alt="" /></span>
+          <span className="bouquet-magic-light" aria-hidden="true" />
         </Button>
-        <div key={petals} className="bouquet-petals" aria-hidden="true">
-          {petals > 0 && Array.from({ length: 9 }, (_, index) => <i key={index} style={{ "--petal-index": index } as CSSProperties} />)}
-        </div>
       </div>
       <p className="bouquet-message">Flowers for you, so they never die. ♡</p>
-      <Button className="story-button story-button-primary bouquet-continue" onClick={onContinue}>KEEP THESE FOREVER <span>→</span></Button>
+      <Button className="story-button bouquet-interaction" onClick={bloomOrContinue}>{bloomed ? "KEEP THESE FOREVER" : "TOUCH TO BLOOM"} <span>→</span></Button>
     </main>
   );
 }
