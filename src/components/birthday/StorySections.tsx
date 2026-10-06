@@ -13,10 +13,29 @@ export function OpeningScene({ onStart }: { onStart: () => void }) {
         <p className="game-kicker"><span className="status-dot" /> PLAYER DETECTED ♡</p>
         <div className="level-mark"><span>LEVEL</span><strong>{birthdayContent.age}</strong></div>
         <p className="story-whisper">A little story was made for you.</p>
-        <Button className="story-button story-button-primary" onClick={onStart}>PRESS START <span>→</span></Button>
+        <Button className="story-button story-button-primary" onClick={onStart}>BEGIN <span>→</span></Button>
         <p className="micro-copy">Best experienced with sound</p>
       </div>
       <div className="scroll-cue" aria-hidden="true"><span /> BEGIN</div>
+    </main>
+  );
+}
+
+export function BirthdayMessageScene({ onContinue }: { onContinue: () => void }) {
+  const paragraphs = birthdayContent.birthdayMessage;
+  return (
+    <main className="story-screen narrative-screen birthday-message-screen">
+      <div className="chapter-rail"><span>♡</span><i /></div>
+      <article className="narrative-copy birthday-message-copy">
+        <p className="game-kicker">A MESSAGE FOR YOU</p>
+        {paragraphs.map((text, i) => (
+          <p key={i} className={`message-line ${i === 0 ? "message-lead" : ""}`} style={{ "--line": i } as CSSProperties}>{text}</p>
+        ))}
+        <div className="message-line" style={{ "--line": paragraphs.length } as CSSProperties}>
+          <div className="story-divider"><span>✦</span></div>
+          <Button className="story-button story-button-quiet" onClick={onContinue}>the story continues… <span>→</span></Button>
+        </div>
+      </article>
     </main>
   );
 }
