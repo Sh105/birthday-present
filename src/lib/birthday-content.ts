@@ -11,15 +11,15 @@ export const birthdayContent = {
     "Happy 24th Birthday, my love. \nThank you for being you and I love you endlessly ♡",
   // Birthday message chapter, shown right after BEGIN. One string per paragraph.
   birthdayMessage: [
-    "Happy birthday to my favorite person ever!! ❤️",
+    "Happy birthday to my favorite person ever!! ♡︎",
     "I hope you know how much you mean to me because sometimes I don’t think I ever say it enough. You’ve become such a special part of my life and I’m genuinely so grateful for every conversation, every laugh, every little moment, and every memory we’ve made together.",
     "Today means a lot to me because if it wasn’t for this day, I would’ve never gotten the chance to meet you in my life. Thinking about that makes me a little emotional because I genuinely can’t imagine my life without you in it.",
     "Soooooo today will always mean a lot to me and I want to always celebrate it and make it special, even if you don’t think it is.",
-    "Thank you for being here, for being you, and most importantly for being alive and my precious hubby ❤️.",
+    "Thank you for being here, for being you, and most importantly for being alive and my precious hubby ♡︎.",
     "I’m so proud of you and the person you’re becoming. I hope this year is gentle with you and brings you all the happiness, success, and little moments of peace that you deserve.",
     "Thank you for being you, for putting up with me, for making me smile when I need it most, and for being someone I can always be myself with.",
-    "I love you so much, baby ❤️.",
-    "I hope today reminds you just how special you are to me. ❤️",
+    "I love you so much, baby ♡︎.",
+    "I hope today reminds you just how special you are to me. ♡︎",
   ],
 } as const;
 
@@ -61,7 +61,7 @@ export const letters: Letter[] = [
     pages: [
       `Hi, love.
 
-If you're opening this, I'm guessing something happened that's weighing heavy on your heart. I wish I could be there to wrap my arms around you, sit with you, let you vent, and remind you that you don't have to carry everything alone, especially when I'm here with you. But since we still have a few more years before I can actually do that whenever you need me, I decided to write this little letter for you instead. ❤️
+If you're opening this, I'm guessing something happened that's weighing heavy on your heart. I wish I could be there to wrap my arms around you, sit with you, let you vent, and remind you that you don't have to carry everything alone, especially when I'm here with you. But since we still have a few more years before I can actually do that whenever you need me, I decided to write this little letter for you instead. ♡︎
 
 Whatever happened today doesn't define you. It doesn't define your week, your month, or who you are either. Bad moments happen, even to good people like you. And as awful as this moment feels right now, please remember that it will pass too. The hurt, the anger, the frustration, the disappointment—all of those feelings will pass.`,
       `You're allowed to feel upset. You're allowed to be frustrated, disappointed, hurt, or angry. You don't have to force yourself to "get over it" right away. Please be kind to yourself, just like you're always kind to me.
@@ -75,7 +75,7 @@ When you're ready, text me. Vent to me, complain to me, tell me what happened, o
 
 I love you.
 
-— Your lovey ❤️`,
+— Your lovey ♡︎`,
     ],
   },
   {
@@ -90,13 +90,13 @@ I wish I could be there right now. I wish I could just pull you into my arms, la
 
 I want that too……..`,
       `If today is one of those days where you miss me a little extra or feel lonely, please don't feel bad about it. You don't have to pretend the distance doesn't hurt or pretend you're okay with it all the time. Trust me, I know it's hard because I feel like that too. But while I can't be there physically yet, I hope you remember that there is a 5'2 girly somewhere out here who is thinking about you, praying for you, worrying about whether you've eaten, hoping you're getting enough rest, getting excited when she sees your name pop up on her phone, and smiling over the stupid little things you do. And one day, all of these things we've had to imagine will just be normal to us the hugs that last way too long, the random drives with music loud as fuck and absolutely nowhere to go, the spontaneous dates, sitting in cafés together, going to the movies, stealing each other's food (which I advise you not to do 🥰), laughing over something that isn't even funny, falling asleep next to each other instead of through a phone call, and being able to look at you and think, "WTF, you're actually here."`,
-      `Until then, when the loneliness gets really bad, let this letter be my little piece of me being there with you. I'm always rooting for you. I'm praying for your safety, your health, your success, your happiness, and for life to become a little kinder to you every day. And if you're lonely because you miss me, well… congratulations, handsome…… I miss you even more❤️.
+      `Until then, when the loneliness gets really bad, let this letter be my little piece of me being there with you. I'm always rooting for you. I'm praying for your safety, your health, your success, your happiness, and for life to become a little kinder to you every day. And if you're lonely because you miss me, well… congratulations, handsome…… I miss you even more♡︎.
 
 We're still here, and we're still us, which is the greatest gift to me.
 
 I love you so fucking much.
 
-— Your girl ❤️`,
+— Your girl ♡︎`,
     ],
   },
   {
@@ -123,7 +123,7 @@ I'm proud of you, handsome.
 
 Always.
 
-— Your girl ❤️`,
+— Your girl ♡︎`,
     ],
   },
   {
@@ -156,7 +156,7 @@ And for right now, that's enough.
 
 I love you so much.
 
-— Your baby ❤️`,
+— Your baby ♡︎`,
     ],
   },
   {
@@ -170,7 +170,7 @@ You've opened this, so I know today has been bad for you. I'm sorry today was ho
 
 You've told me before not to hold everything in and to let myself feel things instead of keeping them bottled up, so I'm telling you the same thing now. Let it out, love. Cry as much as you need to. Be frustrated. Feel whatever you need to feel. You don't have to make yourself okay before you're ready to keep going.`,
       `Just don't let one horrible day convince you that everything is horrible. Yeah, we can admit today was bad, but you are not bad. Your life isn't defined by one awful day, one mistake, one stressful week, or one thing that didn't go the way you wanted it to. So let today stay where it belongs: in the past. Tomorrow doesn't need you to have everything figured out. It just needs you to wake up, take a breath, and take it one day at a time. And if I were there, I'd hug you until you got sick of me, make you your favorite food yes, even that chicken Alfredo pasta you love, which I know is confusing because how can you make Alfredo pasta when you hate it, but sit back and watch me do it 🤚😌 and don't worry I'll make myself something else so we can eat together then we'd probably put something on the TV, play something, or just lay there doing absolutely nothing while eating.`,
-      `I'd tell you that it's okay, I'd remind you that you're loved, and I'd probably annoy you until I got at least one smile out of you. Since I can't physically be there yet, let this letter be my little piece of that. I hope tonight you can leave today behind you, VERY far behind you, and give yourself permission to rest. Tomorrow is another day, and even if tomorrow doesn't feel exciting yet, remember that every ordinary day is still one day closer to the life we're working toward. One day closer to the random drives, the dates, the stupid little everyday things, and eventually to us coming home to each other, married and settled down. ❤️
+      `I'd tell you that it's okay, I'd remind you that you're loved, and I'd probably annoy you until I got at least one smile out of you. Since I can't physically be there yet, let this letter be my little piece of that. I hope tonight you can leave today behind you, VERY far behind you, and give yourself permission to rest. Tomorrow is another day, and even if tomorrow doesn't feel exciting yet, remember that every ordinary day is still one day closer to the life we're working toward. One day closer to the random drives, the dates, the stupid little everyday things, and eventually to us coming home to each other, married and settled down. ♡︎
 
 So, for tonight can you do me a favor? Please just take care of yourself. Drink some water, eat something, take a shower, get comfortable, cry if you need to, and then try to get some fucking sleep PLEASEEEE.
 
@@ -178,7 +178,7 @@ You've survived every bad day you've had so far, and you WILL get through this o
 
 I love you so much.
 
-— Your bebé ❤️`,
+— Your bebé ♡︎`,
     ],
   },
   {
@@ -231,7 +231,7 @@ Sweet dreams.
 
 I love you.
 
-— Your babe ❤️`,
+— Your babe ♡︎`,
     ],
   },
   {
@@ -261,7 +261,7 @@ Get better soon, baby.
 
 I love you way too much to let you skip taking care of yourself.
 
-— Your girl ❤️`,
+— Your girl ♡︎`,
     ],
   },
   {
@@ -294,7 +294,7 @@ I love you, babe more than you probably realize.
 
 Now go a little easier on my boy, okay? You've got enough people in this world judging you. You don't need to be one of them and until you can believe in yourself again, borrow some of my belief in you.
 
-I've got plenty. ❤️
+I've got plenty. ♡︎
 
 — Your girl`,
     ],
@@ -328,7 +328,7 @@ So please always remember that.
 
 I love you.
 
-— Your love ❤️`,
+— Your love ♡︎`,
     ],
   },
   {
@@ -361,7 +361,7 @@ Now come here, baby. Consider this your biggest fucking hug until I can give you
 
 I love you so much.
 
-— Your girl ❤️`,
+— Your girl ♡︎`,
     ],
   },
   {
@@ -392,7 +392,7 @@ Until then bebé consider this your long-distance hug.
 
 I love you so much.
 
-— Your bebé ❤️`,
+— Your bebé ♡︎`,
     ],
   },
   {
@@ -417,7 +417,7 @@ Always.
 
 I love you.
 
-— Your girl ❤️`,
+— Your girl ♡︎`,
     ],
   },
 ];
