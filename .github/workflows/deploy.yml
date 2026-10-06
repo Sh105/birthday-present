@@ -34,10 +34,16 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Inspect build output
+      - name: Collect site files
         run: |
-          echo "=== .output/public ==="
-          find .output/public -maxdepth 4 -type f -print
+          if [ -f .output/public/index.html ]; then SRC=.output/public
+          elif [ -f dist/client/index.html ]; then SRC=dist/client
+          else echo "No built index.html found"; exit 1; fi
+          rm -rf pages && cp -r "$SRC" pages
+          touch pages/.nojekyll
+          echo "=== pages ($SRC) ==="
+          find pages -maxdepth 3 -type f -print
+          ls pages/assets/*.css pages/assets/*.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -45,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          path: ./pages
 
   deploy:
     environment:
