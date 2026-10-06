@@ -9,6 +9,18 @@ export const birthdayContent = {
     "And somewhere somehow along the way, you have became the most important part of my life.\nSo instead of giving you something ordinary for your birthday, I wanted to make you a little something ",
   finalMessage:
     "Happy 24th Birthday, my love. \nThank you for being you and I love you endlessly ♡",
+  // Birthday message chapter, shown right after BEGIN. One string per paragraph.
+  birthdayMessage: [
+    "Happy birthday to my favorite person ever!! ❤️",
+    "I hope you know how much you mean to me because sometimes I don’t think I ever say it enough. You’ve become such a special part of my life and I’m genuinely so grateful for every conversation, every laugh, every little moment, and every memory we’ve made together.",
+    "Today means a lot to me because if it wasn’t for this day, I would’ve never gotten the chance to meet you in my life. Thinking about that makes me a little emotional because I genuinely can’t imagine my life without you in it.",
+    "Soooooo today will always mean a lot to me and I want to always celebrate it and make it special, even if you don’t think it is.",
+    "Thank you for being here, for being you, and most importantly for being alive and my precious hubby ❤️.",
+    "I’m so proud of you and the person you’re becoming. I hope this year is gentle with you and brings you all the happiness, success, and little moments of peace that you deserve.",
+    "Thank you for being you, for putting up with me, for making me smile when I need it most, and for being someone I can always be myself with.",
+    "I love you so much, baby ❤️.",
+    "I hope today reminds you just how special you are to me. ❤️",
+  ],
 } as const;
 
 export const wishes = [
