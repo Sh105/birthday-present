@@ -250,3 +250,7 @@
 .birthday-message-copy .message-lead { font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.3; text-shadow: 0 0 22px color-mix(in oklab, var(--primary) 55%, transparent); }
 @keyframes message-reveal { to { opacity: 1; transform: none; filter: none; } }
 @media (prefers-reduced-motion: reduce) { .birthday-message-copy .message-line { animation: none; opacity: 1; transform: none; filter: none; } }
+
+/* Hearts render as thin typographic glyphs, never colour emoji */
+.birthday-story { font-variant-emoji: text; }
+.birthday-message-copy .message-lead { font-family: var(--font-game); letter-spacing: .01em; }
